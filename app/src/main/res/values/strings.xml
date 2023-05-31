@@ -9,4 +9,6 @@
     <string name="date">Date</string>
     <string name="type_the_note_here">Type the note here...</string>
     <string name="task_name">Task Name</string>
+    <string name="no_data_found">No Tasks Found!</string>
+    <string name="add_task">Add Task</string>
 </resources>

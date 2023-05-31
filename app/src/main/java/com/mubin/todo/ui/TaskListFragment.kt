@@ -101,7 +101,14 @@ class TaskListFragment : Fragment() {
 
             Log.d("DataSize","${data.size}")
 
-            taskAdapter.setData(data)
+            if(data.isEmpty()) {
+                binding.noDataTv.visibility = View.VISIBLE
+                binding.taskListRv.visibility = View.GONE
+            } else {
+                binding.noDataTv.visibility = View.GONE
+                binding.taskListRv.visibility = View.VISIBLE
+                taskAdapter.setData(data)
+            }
 
         }
 
