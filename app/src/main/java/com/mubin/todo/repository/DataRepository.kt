@@ -18,7 +18,9 @@ constructor(
 
     suspend fun getAllTask () : List<TaskInfo> = taskDao.getAllTaskFromInternalDb()
     suspend fun insertTask (task: TaskInfo) : Long = taskDao.insertTask(task)
+    suspend fun updateTask (isDone: Boolean, id: Int) : Int = taskDao.updateTask(isDone, id)
     suspend fun getTasksByDate () : List<TaskInfo> = taskDao.getTasksByDate()
+    suspend fun getDataFromRemote() = api.getTvShows()
 
 
 }

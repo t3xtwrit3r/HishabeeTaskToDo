@@ -5,7 +5,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.mubin.todo.db.tables.TaskInfo
-import java.util.Date
 
 @Dao
 interface TaskDao {
@@ -15,6 +14,9 @@ interface TaskDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTask(task: TaskInfo): Long
+
+    @Query("Update TaskInfo set isDone = :isDone where id = :id")
+    suspend fun updateTask(isDone: Boolean, id: Int): Int
 
     @Query("select * from TaskInfo ORDER BY TaskDate")
     suspend fun getTasksByDate(): List<TaskInfo>
